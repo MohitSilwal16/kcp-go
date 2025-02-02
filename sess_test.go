@@ -59,7 +59,7 @@ func dialEcho(port int) (*UDPSession, error) {
 	//block, _ := NewTEABlockCrypt(pass[:16])
 	//block, _ := NewAESBlockCrypt(pass)
 	block, _ := NewSalsa20BlockCrypt(pass)
-	sess, err := DialWithOptions(fmt.Sprintf("127.0.0.1:%v", port), block, 10, 3)
+	sess, err := DialWithOptions(fmt.Sprintf("127.0.0.1:%v", port), "", block, 10, 3)
 	if err != nil {
 		panic(err)
 	}
@@ -82,7 +82,7 @@ func dialEcho(port int) (*UDPSession, error) {
 }
 
 func dialSink(port int) (*UDPSession, error) {
-	sess, err := DialWithOptions(fmt.Sprintf("127.0.0.1:%v", port), nil, 0, 0)
+	sess, err := DialWithOptions(fmt.Sprintf("127.0.0.1:%v", port), "", nil, 0, 0)
 	if err != nil {
 		panic(err)
 	}
@@ -105,7 +105,7 @@ func dialTinyBufferEcho(port int) (*UDPSession, error) {
 	//block, _ := NewTEABlockCrypt(pass[:16])
 	//block, _ := NewAESBlockCrypt(pass)
 	block, _ := NewSalsa20BlockCrypt(pass)
-	sess, err := DialWithOptions(fmt.Sprintf("127.0.0.1:%v", port), block, 10, 3)
+	sess, err := DialWithOptions(fmt.Sprintf("127.0.0.1:%v", port), "", block, 10, 3)
 	if err != nil {
 		panic(err)
 	}
